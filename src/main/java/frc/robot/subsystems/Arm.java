@@ -51,7 +51,6 @@ public class Arm extends SubsystemBase {
         mPID.setD(config.getD());
         mPID.setFeedbackDevice(mEncoder);
         mPID.setOutputRange(config.getMinOutputRange(), config.getMaxOutputRange());
-        // hi - lauren
         this.currentPosition = ArmPosition.REST;
 
         Shuffleboard.getTab("Arm").addDouble("Left Encoder Positon", mEncoder::getPosition);
