@@ -304,11 +304,11 @@ public class RobotContainer {
                     mShooter.stopFlyWheel();
                 }, mIntake, mDelivery, mShooter));
 
-        mController.y().onTrue(Commands.run(() -> {
+        mController.leftStick().onTrue(Commands.run(() -> {
             LimelightHelpers.setPipelineIndex("", LimeLightPipelines.SPEAKER.id);
             LimelightHelpers.takeSnapshot("", "Y button " + LimelightHelpers.getTY(""));
             mShooter.goToAngle();
-            mShooter.spinUpFlyWheel();
+            mShooter.spinToRpm(3000);
         }, mShooter)).onFalse(Commands.runOnce(() -> {
             mShooter.stopFlyWheel();
             LimelightHelpers.setPipelineIndex("", LimeLightPipelines.MEGATAG.id);
@@ -405,7 +405,7 @@ public class RobotContainer {
         //                 new ParallelCommandGroup(Commands.runOnce(() -> leftClimber.stopMotor(), leftClimber),
         //                         Commands.runOnce(() -> rightClimber.stopMotor(), rightClimber)));
 
-        mController.leftBumper().onTrue(Commands.runOnce(() -> {
+        mController.rightBumper().onTrue(Commands.runOnce(() -> {
             mDelivery.toShooter();
             mIntake.intake();
         }, mDelivery)).onFalse(Commands.runOnce(() -> {
@@ -413,7 +413,7 @@ public class RobotContainer {
             mIntake.stop();
         }, mDelivery, mIntake));
 
-        mController.rightBumper().onTrue(Commands.runOnce(() -> {
+        mController.leftBumper().onTrue(Commands.runOnce(() -> {
             mDelivery.toIntake();
             mIntake.outtake();
         }, mDelivery)).onFalse(Commands.runOnce(() -> {
