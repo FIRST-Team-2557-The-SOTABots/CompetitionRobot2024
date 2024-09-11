@@ -15,26 +15,31 @@ import frc.robot.subsystems.SOTA_SwerveDrive;
 import frc.robot.subsystems.Wrist;
 import frc.robot.subsystems.Wrist.WristPosition;
 
-public class ShooterSequence extends SequentialCommandGroup {
+public class ShuttleSequence extends SequentialCommandGroup {
     private Shooter shooter;
 
-    public ShooterSequence(Shooter mShooter, Delivery mDelivery, Intake mIntake, Wrist mWrist,
-            SOTA_SwerveDrive mSwerve) {
+    public ShuttleSequence(Shooter mShooter, Delivery mDelivery, Intake mIntake, Wrist mWrist,
+            SOTA_SwerveDrive mSwerve , double setPoint, boolean onBlueSide) {
         this.shooter = mShooter;
+
+        if (onBlueSide == false){
+            setPoint = -setPoint;
+        } 
+        
         LimelightHelpers.takeSnapshot("", "Sequence " + LimelightHelpers.getTY(""));
         addCommands(
                 Commands.runOnce(() -> {
                     mWrist.setDesiredPosition(WristPosition.REST);
-                    LimelightHelpers.setPipelineIndex("", LimeLightPipelines.SPEAKER.id);                    
+                    LimelightHelpers.setPipelineIndex("", LimeLightPipelines.STAGE.id);                    
                 }, mWrist),
                 Commands.waitUntil(mWrist::atSetpoint),
                 // Commands.run(() -> {mIntake.outtake(); mDelivery.toIntake();}, mIntake,
                 // mWrist).until(mIntake::hasNote),
-                new RotateToAprilTag(mSwerve, 0),
+                new RotateToAprilTag(mSwerve, setPoint),
                 Commands.parallel(
                         Commands.run(() -> {
-                            mShooter.spinUpFlyWheel();
-                            mShooter.goToAngle();
+                            mShooter.spinToRpm(2700);
+                            mShooter.goToShuttleAngle();
                         }, mShooter).until(this::isReadyToShoot),
                         Commands.waitUntil(this::isReadyToShoot).andThen(Commands.run(() -> {
                             mIntake.intake();

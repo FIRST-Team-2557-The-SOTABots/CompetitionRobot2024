@@ -94,7 +94,7 @@ public class AutoCommands {
                     mShooter.spinUpFlyWheel();
                     mShooter.goToAngle();
                 }, mShooter),
-                    shouldRotate ? new RotateToAprilTag(mSwerve) : Commands.waitSeconds(0) 
+                    shouldRotate ? new RotateToAprilTag(mSwerve, 0) : Commands.waitSeconds(0) 
                 ),
                 Commands.waitUntil(this::isReadyToShoot).andThen(
                     Commands.waitSeconds(0.25).andThen(
@@ -164,7 +164,7 @@ public class AutoCommands {
     public Command alignAndShoot() {
         return Commands.sequence(
             Commands.runOnce(() -> LimelightHelpers.setPipelineIndex("", LimeLightPipelines.SPEAKER.id)),
-            new RotateToAprilTag(mSwerve),
+            new RotateToAprilTag(mSwerve, 0),
             Commands.parallel(
                 Commands.run(() -> {
                     mShooter.goToAngle();

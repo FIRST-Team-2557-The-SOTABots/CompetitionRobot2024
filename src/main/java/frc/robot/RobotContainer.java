@@ -40,6 +40,7 @@ import frc.robot.commands.climber.Climb;
 import frc.robot.commands.climber.Uppies;
 import frc.robot.commands.intake.AutoStop;
 import frc.robot.commands.shooter.ShooterSequence;
+import frc.robot.commands.shooter.ShuttleSequence;
 import frc.robot.commands.swerve.DriveCommand;
 import frc.robot.commands.swerve.RotateAndDrive;
 import frc.robot.commands.swerve.RotateToAprilTag;
@@ -230,7 +231,7 @@ public class RobotContainer {
         NamedCommands.registerCommand("Align Shoot", autoCommands.alignAndShoot());
         // NamedCommands.registerCommand("Arm to Amp", autoCommands.setArmToAmp());
         // NamedCommands.registerCommand("Arm to Rest", autoCommands.setArmToRest());
-        NamedCommands.registerCommand("Align Tag", new RotateToAprilTag(mSwerveDrive));
+        NamedCommands.registerCommand("Align Tag", new RotateToAprilTag(mSwerveDrive, 0));
         NamedCommands.registerCommand("Amp Sequence", autoCommands.scoreInAmp());
         NamedCommands.registerCommand("Align Shooter", autoCommands.alignShooter());
         NamedCommands.registerCommand("Reset Gyro", Commands.runOnce(() -> mSwerveDrive.resetHeading(), mSwerveDrive));
@@ -279,6 +280,8 @@ public class RobotContainer {
 
         dController.rightTrigger().onTrue(new Climb(leftClimber, rightClimber));
 
+        mController.start().onTrue(Commands.runOnce(() -> mShooter.changeSides(), mShooter));
+
 
         mController.a().onTrue(new AutoStop(mWrist,
                 mIntake)).onFalse(Commands.runOnce(() -> {
@@ -287,7 +290,7 @@ public class RobotContainer {
                 }, mWrist, mIntake));
 
         mController.b().onTrue(Commands.sequence(
-                new RotateToAprilTag(mSwerveDrive),
+                new RotateToAprilTag(mSwerveDrive, 0),
                 Commands.runOnce(() -> {
                     mIntake.intake();
                     mDelivery.toShooter();
@@ -297,6 +300,14 @@ public class RobotContainer {
                 }));
 
         mController.x().onTrue(new ShooterSequence(mShooter, mDelivery, mIntake, mWrist, mSwerveDrive))
+                .onFalse(Commands.runOnce(() -> {
+                    mIntake.stop();
+                    mDelivery.stop();
+                    mShooter.linearActuatorSetVoltage(0);
+                    mShooter.stopFlyWheel();
+                }, mIntake, mDelivery, mShooter));
+
+        mController.y().onTrue(new ShuttleSequence(mShooter, mDelivery, mIntake, mWrist, mSwerveDrive,5 ,mShooter.onBlueSide()))
                 .onFalse(Commands.runOnce(() -> {
                     mIntake.stop();
                     mDelivery.stop();

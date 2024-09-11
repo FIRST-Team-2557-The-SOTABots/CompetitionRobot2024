@@ -14,6 +14,10 @@ public class ShooterConfig {
     private double angleConvB;
     private double angleConvC;
 
+    private double shuttleAngleCalcA;
+    private double shuttleAngleCalcB;
+    private double shuttleAngleCalcC;
+
     private double angleCalcA;
     private double angleCalcB;
     private double angleCalcC;
@@ -42,6 +46,18 @@ public class ShooterConfig {
     private MotorControllerConfig leftShooterConfig;
     private MotorControllerConfig rightShooterConfig;
     private double restLinearValue;
+
+    public double getShuttleAngleCalcA() {
+        return shuttleAngleCalcA;
+    }
+
+    public double getShuttleAngleCalcB() {
+        return shuttleAngleCalcB;
+    }
+
+    public double getShuttleAngleCalcC() {
+        return shuttleAngleCalcC;
+    }
 
     public double getRpmCalcA() {
         return rpmCalcA;

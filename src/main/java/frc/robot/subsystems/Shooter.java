@@ -34,6 +34,9 @@ public class Shooter extends SubsystemBase {
     private double angleCalcA;
     private double angleCalcB;
     private double angleCalcC;
+    private double ShuttleAngleCalcA;
+    private double ShuttleAngleCalcB;
+    private double ShuttleAngleCalcC;
 
     private double rpmCalcA;
     private double rpmCalcB;
@@ -57,6 +60,8 @@ public class Shooter extends SubsystemBase {
     private double rightKv;
     private double rightKs;
     private double targetAngle;
+
+    private boolean blueSide = true;
 
     public Shooter(ShooterConfig config, SOTA_MotorController linearActuator, SOTA_AbsoulteEncoder linearEncoder,
             SOTA_MotorController leftShooter, SOTA_MotorController rightShooter) {
@@ -92,6 +97,10 @@ public class Shooter extends SubsystemBase {
         this.targetRPM = config.getTargetRPM();
         this.kMaxShooterAngle = encoderToAngle(maxLinearValue);
 
+        this.ShuttleAngleCalcA = config.getShuttleAngleCalcA();
+        this.ShuttleAngleCalcB = config.getShuttleAngleCalcB();
+        this.ShuttleAngleCalcC = config.getShuttleAngleCalcC();
+
         this.angleCalcA = config.getAngleCalcA();
         this.angleCalcB = config.getAngleCalcB();
         this.angleCalcC = config.getAngleCalcC();
@@ -115,12 +124,27 @@ public class Shooter extends SubsystemBase {
         Shuffleboard.getTab("Competition").addBoolean("Close Enough!", this::isTooFar);
         Shuffleboard.getTab("Competition").addBoolean("Ready To Shoot", this::isReadyToShoot);
         Shuffleboard.getTab("Competition").addDouble("Angle Target", this::calcTargetAngle);
+        Shuffleboard.getTab("Competition").addBoolean("On Blue Side", this::onBlueSide);
         Shuffleboard.getTab("Shooter").addDouble("Corrected Position", this::getCorrectedEncoderPosition);
         Shuffleboard.getTab("Shooter").addBoolean("isAtShootingSpeed", this::isAtShootingSpeed);
         Shuffleboard.getTab("Shooter").addDouble("Distance to Limelight", this::calcDistanceLimeLightToTag);
         Shuffleboard.getTab("Shooter").addDouble("Linear Actuator Voltage", linearActuator::getMotorCurrent);
         Shuffleboard.getTab("Shooter").addBoolean("At Angle", this::isAtAngle);
         Shuffleboard.getTab("Shooter").addBoolean("Intakeable", this::isIntakeAble);
+
+    }
+
+    public void changeSides() {
+        if (blueSide == false){
+            blueSide = true;
+        }
+        else if (blueSide == true){
+            blueSide = false;
+        }
+    }
+
+    public boolean onBlueSide() {
+        return blueSide;
     }
 
     public double getCorrectedEncoderPosition() {
@@ -132,6 +156,11 @@ public class Shooter extends SubsystemBase {
         }
 
         return output;
+    }
+
+    public double calcShuttleAngle() {
+        double x = calcDistanceLimeLightToTag();
+        return (ShuttleAngleCalcA * x * x) + (ShuttleAngleCalcB * x) + ShuttleAngleCalcC;
     }
 
     public double calcTargetAngle() {
@@ -204,6 +233,13 @@ public class Shooter extends SubsystemBase {
         currentAngleSetpoint = calcTargetAngle();
         double volts = linearPID.calculate(encoderToAngle(getCorrectedEncoderPosition()),
                 calcTargetAngle());
+        linearActuatorSetVoltage(volts);
+    }
+
+    public void goToShuttleAngle() {
+        currentAngleSetpoint = calcShuttleAngle();
+        double volts = linearPID.calculate(encoderToAngle(getCorrectedEncoderPosition()),
+                calcShuttleAngle());
         linearActuatorSetVoltage(volts);
     }
 
