@@ -43,6 +43,8 @@ public class Arm extends SubsystemBase {
         rightMotor.setInverted(config.getRightMotorInverted());
         leftMotor.setInverted(config.getLeftMotorInverted());
         rightMotor.follow(leftMotor, true);
+        rightMotor.setSmartCurrentLimit(38);
+        leftMotor.setSmartCurrentLimit(38);
 
         mEncoder.setInverted(true);
 

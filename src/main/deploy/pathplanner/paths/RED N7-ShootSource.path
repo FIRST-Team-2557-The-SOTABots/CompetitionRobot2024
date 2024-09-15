@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 8.403017976951913,
-        "y": 2.4099875206360424
+        "x": 8.13,
+        "y": 2.44
       },
       "prevControl": null,
       "nextControl": {
-        "x": 11.628339932789403,
-        "y": 0.7153268319756653
+        "x": 11.355321955837491,
+        "y": 0.7453393113396228
       },
       "isLocked": false,
       "linkedName": "RED-Intake7Source"
     },
     {
       "anchor": {
-        "x": 13.268334147622028,
-        "y": 3.237794124313461
+        "x": 13.56,
+        "y": 2.9800000000000004
       },
       "prevControl": {
-        "x": 12.112528700978084,
-        "y": 1.9804652262751175
+        "x": 12.404194553356056,
+        "y": 1.722671101961657
       },
       "nextControl": null,
       "isLocked": false,
@@ -57,7 +57,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -142.9223216530007,
+    "rotation": -134.90247666398741,
     "rotateFast": false
   },
   "reversed": false,

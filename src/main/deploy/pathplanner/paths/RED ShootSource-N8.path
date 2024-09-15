@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 13.268334147622028,
-        "y": 3.237794124313461
+        "x": 13.56,
+        "y": 2.98
       },
       "prevControl": null,
       "nextControl": {
-        "x": 11.745482376706022,
-        "y": 1.9414177449695793
+        "x": 11.92176364991741,
+        "y": 1.8328945583030087
       },
       "isLocked": false,
       "linkedName": "RED-SourceStageShoot"
     },
     {
       "anchor": {
-        "x": 8.62168387226293,
-        "y": 0.7387553207589886
+        "x": 8.06,
+        "y": 0.74
       },
       "prevControl": {
-        "x": 9.832155792734628,
-        "y": 0.9027547422422508
+        "x": 9.2704719204717,
+        "y": 0.9039994214832622
       },
       "nextControl": null,
       "isLocked": false,
@@ -92,7 +92,7 @@
   "reversed": false,
   "folder": "Note-Note",
   "previewStartingState": {
-    "rotation": -145.5480654181421,
+    "rotation": -141.54108680895834,
     "velocity": 0
   },
   "useDefaultConstraints": true
