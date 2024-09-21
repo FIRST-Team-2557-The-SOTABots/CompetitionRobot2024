@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 14.83804289610468,
-        "y": 5.54159552134024
+        "x": 14.837955936271065,
+        "y": 5.55
       },
       "isLocked": false,
       "linkedName": "RED-CenterSub"
@@ -20,8 +20,8 @@
         "y": 5.55
       },
       "prevControl": {
-        "x": 14.127378736343875,
-        "y": 5.54159552134024
+        "x": 14.127655699967157,
+        "y": 5.55
       },
       "nextControl": null,
       "isLocked": false,

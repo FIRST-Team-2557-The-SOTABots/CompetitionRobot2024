@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 15.267565190465602,
-        "y": 6.361592628756551
+        "x": 15.096078298755135,
+        "y": 6.509540359092914
       },
       "isLocked": false,
       "linkedName": "RED-Intake1 new"
@@ -20,8 +20,8 @@
         "y": 4.487313526090697
       },
       "prevControl": {
-        "x": 14.908328362454643,
-        "y": 5.307310633507007
+        "x": 14.768606113114902,
+        "y": 5.1212006228699645
       },
       "nextControl": null,
       "isLocked": false,
@@ -39,7 +39,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -135.72522429905925,
+    "rotation": -142.86241829218497,
     "rotateFast": false
   },
   "reversed": false,

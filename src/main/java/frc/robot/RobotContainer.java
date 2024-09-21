@@ -304,15 +304,25 @@ public class RobotContainer {
                     mShooter.stopFlyWheel();
                 }, mIntake, mDelivery, mShooter));
 
-        mController.leftStick().onTrue(Commands.run(() -> {
-            LimelightHelpers.setPipelineIndex("", LimeLightPipelines.SPEAKER.id);
-            LimelightHelpers.takeSnapshot("", "Y button " + LimelightHelpers.getTY(""));
-            mShooter.goToAngle();
-            mShooter.spinToRpm(3000);
-        }, mShooter)).onFalse(Commands.runOnce(() -> {
-            mShooter.stopFlyWheel();
-            LimelightHelpers.setPipelineIndex("", LimeLightPipelines.MEGATAG.id);
-        }, mShooter));
+//         mController.leftStick().onTrue(Commands.run(() -> {
+// LimelightHelpers.setPipelineIndex("", LimeLightPipelines.SPEAKER.id);
+//             LimelightHelpers.takeSnapshot("", "Y button " + LimelightHelpers.getTY(""));
+//             mShooter.goToSpecifiedAngle(30);
+//             mShooter.spinToRpm(3000);
+//         }, mShooter)).onFalse((Commands.runOnce(() -> {
+//             mDelivery.toShooter();
+//         }, mShooter, mDelivery))(Commands.waitSeconds(0.5).andThen(Commands.runOnce(() -> {
+//             mShooter.stopFlyWheel();
+//             mDelivery.stop();
+//             LimelightHelpers.setPipelineIndex("", LimeLightPipelines.MEGATAG.id);
+//         }, mShooter, mDelivery))));
+
+
+            mController.leftStick().onTrue(Commands.run(() -> {
+            mDelivery.toShooter();
+        }, mDelivery)).onFalse((Commands.runOnce(() -> {
+            mDelivery.stop();
+        }, mDelivery)));
 
         mController.rightStick().onTrue(Commands.waitUntil(mWrist::atSetpoint).andThen(Commands.run(() -> {
             mIntake.intake();
@@ -367,7 +377,7 @@ public class RobotContainer {
             mIntake.stop();
         }, mWrist, mIntake));
 
-        mController.leftTrigger().onTrue(Commands.run(() -> {
+        mController.rightTrigger().onTrue(Commands.run(() -> {
             LimelightHelpers.setPipelineIndex("", LimeLightPipelines.SPEAKER.id);
             LimelightHelpers.takeSnapshot("", "Left Trigger button " + LimelightHelpers.getTY(""));
             mShooter.goToSpecifiedAngle(60);
@@ -377,14 +387,11 @@ public class RobotContainer {
             LimelightHelpers.setPipelineIndex("", LimeLightPipelines.MEGATAG.id);
         }, mShooter));
 
-        mController.rightTrigger().onTrue(Commands.run(() -> {
-            LimelightHelpers.setPipelineIndex("", LimeLightPipelines.SPEAKER.id);
-            LimelightHelpers.takeSnapshot("", "Right Trigger button " + LimelightHelpers.getTY(""));
-            mShooter.goToSpecifiedAngle(35);
-            mShooter.spinUpFlyWheel();
+        mController.leftTrigger().onTrue(Commands.run(() -> {
+            mShooter.spinToRpm(3000);
+            mShooter.goToSpecifiedAngle(45);
         }, mShooter)).onFalse(Commands.runOnce(() -> {
             mShooter.stopFlyWheel();
-            LimelightHelpers.setPipelineIndex("", LimeLightPipelines.MEGATAG.id);
         }, mShooter));
         // mController.leftTrigger().onTrue(Commands.sequence(
         //     Commands.run(() -> mShooter.goToSpecifiedAngle(44.5)).until(mShooter::isAtAngle),
