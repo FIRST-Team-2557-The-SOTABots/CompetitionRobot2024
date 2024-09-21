@@ -45,7 +45,7 @@
         "motorType": "BRUSHLESS",
         "motorModel": "SparkFlex",
         "neutralOperation": "COAST",
-        "currentLimit": 60
+        "currentLimit": 30
     },
     "rightShooterConfig": {
         "port": 14,
@@ -53,6 +53,6 @@
         "motorType": "BRUSHLESS",
         "motorModel": "SparkFlex",
         "neutralOperation": "COAST",
-        "currentLimit": 60
+        "currentLimit": 30
     }
 }

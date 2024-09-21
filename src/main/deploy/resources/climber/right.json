@@ -8,6 +8,6 @@
         "motorType": "BRUSHLESS",
         "isInverted": false,
         "neutralOperation": "BRAKE",
-        "currentLimit": 60
+        "currentLimit": 35
     }
 }

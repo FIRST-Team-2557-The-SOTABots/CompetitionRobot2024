@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 2,
-      "y": 2
+      "x": 8.2468682316282,
+      "y": 7.439065519461206
     },
     "rotation": 0
   },
@@ -12,9 +12,15 @@
     "data": {
       "commands": [
         {
+          "type": "path",
+          "data": {
+            "pathName": "New Path"
+          }
+        },
+        {
           "type": "named",
           "data": {
-            "name": "Shoot preloaded"
+            "name": "Limelight Speaker"
           }
         }
       ]
