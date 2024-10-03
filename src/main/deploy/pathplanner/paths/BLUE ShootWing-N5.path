@@ -3,32 +3,38 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.685697756664635,
-        "y": 6.291307162406582
+        "x": 3.76,
+        "y": 6.34
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.708357288291536,
-        "y": 6.385021117539874
+        "x": 5.673916142363608,
+        "y": 7.4449999999999985
       },
       "isLocked": false,
       "linkedName": "Blue-ShootWing"
     },
     {
       "anchor": {
-        "x": 8.715397827396222,
-        "y": 5.54
+        "x": 8.63,
+        "y": 5.58
       },
       "prevControl": {
-        "x": 7.528354395707848,
-        "y": 6.095402703534397
+        "x": 7.65296283327646,
+        "y": 6.744387553540845
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "BLUE-Intake5"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": -30.590924792961097,
+      "rotateFast": false
+    }
+  ],
   "constraintZones": [
     {
       "name": "New Constraints Zone",
@@ -86,7 +92,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -5.793203749675216,
+    "rotation": -36.416831092376604,
     "rotateFast": false
   },
   "reversed": false,

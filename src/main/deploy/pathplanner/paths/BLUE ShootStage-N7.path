@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.311854704469505,
-        "y": 5.060124514548317
+        "x": 4.32,
+        "y": 4.76
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.647278565118928,
-        "y": 4.411936324876375
+        "x": 5.655423860649423,
+        "y": 4.111811810328058
       },
       "isLocked": false,
       "linkedName": "BLUE-ShootStage"

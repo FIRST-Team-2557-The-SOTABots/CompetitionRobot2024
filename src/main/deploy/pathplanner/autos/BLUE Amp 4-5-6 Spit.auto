@@ -49,6 +49,12 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "Shoot preloaded"
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "BLUE ShootWing-N5"
@@ -77,6 +83,12 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot preloaded"
           }
         },
         {
