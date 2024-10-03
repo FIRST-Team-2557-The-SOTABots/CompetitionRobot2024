@@ -19,6 +19,7 @@ public class Climber extends SubsystemBase {
         this.name = config.getName();
         Shuffleboard.getTab("Climber").addBoolean(name + " isFullyRetracted:", this::isFullyRetracted);
         Shuffleboard.getTab("Climber").addNumber(name + " encoder position", mMotor::getEncoderPosition);
+        Shuffleboard.getTab("Climber").addDouble(name + "Current", mMotor::getMotorCurrent);
     }
 
     public void climb() {

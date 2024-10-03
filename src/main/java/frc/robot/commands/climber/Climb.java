@@ -10,6 +10,7 @@ public class Climb extends ParallelCommandGroup {
         addCommands(
                 Commands.run(() -> leftClimber.climb(), leftClimber).until(leftClimber::isFullyRetracted)
                         .andThen(Commands.runOnce(() -> leftClimber.stopMotor(), leftClimber)),
+
                 Commands.run(() -> rightClimber.climb(), rightClimber).until(rightClimber::isFullyRetracted)
                         .andThen(Commands.runOnce(() -> rightClimber.stopMotor(), rightClimber)));
 

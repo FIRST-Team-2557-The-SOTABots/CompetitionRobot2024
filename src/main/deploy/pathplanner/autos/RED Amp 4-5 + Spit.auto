@@ -57,6 +57,12 @@
         {
           "type": "named",
           "data": {
+            "name": "Shoot preloaded"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
             "name": "Stop Flywheels"
           }
         },
@@ -89,6 +95,12 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot preloaded"
           }
         },
         {

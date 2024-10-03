@@ -12,6 +12,12 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "Limelight Odom"
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "BLUE Goofy Time"

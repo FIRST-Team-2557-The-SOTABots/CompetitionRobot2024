@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.349889417437002,
-        "y": 4.7918838802738986
+        "x": 4.311854704469505,
+        "y": 5.060124514548317
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.685313278086424,
-        "y": 4.143695690601957
+        "x": 5.647278565118928,
+        "y": 4.411936324876375
       },
       "isLocked": false,
       "linkedName": "BLUE-ShootStage"
@@ -62,7 +62,7 @@
     },
     {
       "name": "New Event Marker",
-      "waypointRelativePos": 0.65,
+      "waypointRelativePos": 0.55,
       "command": {
         "type": "parallel",
         "data": {

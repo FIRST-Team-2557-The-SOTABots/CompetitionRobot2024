@@ -43,8 +43,8 @@ public class Wrist extends SubsystemBase {
         rightMotor.setIdleMode(CANSparkBase.IdleMode.kBrake);
         rightMotor.setInverted(config.getRightMotorInverted());
         leftMotor.setInverted(config.getLeftMotorInverted());
-        rightMotor.setSmartCurrentLimit(30);
-        leftMotor.setSmartCurrentLimit(30);
+        rightMotor.setSmartCurrentLimit(35);
+        leftMotor.setSmartCurrentLimit(35);
         rightMotor.follow(leftMotor, true);
 
         mPID.setP(config.getP());

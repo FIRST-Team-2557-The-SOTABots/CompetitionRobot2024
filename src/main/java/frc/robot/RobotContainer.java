@@ -415,6 +415,7 @@ public class RobotContainer {
         mController.rightBumper().onTrue(Commands.runOnce(() -> {
             mDelivery.toShooter();
             mIntake.intake();
+            
         }, mDelivery)).onFalse(Commands.runOnce(() -> {
             mDelivery.stop();
             mIntake.stop();

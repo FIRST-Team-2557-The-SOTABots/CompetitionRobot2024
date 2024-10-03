@@ -98,7 +98,7 @@ public class AutoCommands {
                 ),
                 Commands.waitUntil(this::isReadyToShoot).andThen(
                     Commands.waitSeconds(0.25).andThen(
-                    Commands.run(() -> {mIntake.intake(); mDelivery.toShooter();}, mIntake, mDelivery).withTimeout(isPreloaded ? 0.75 : 1.5)
+                    Commands.run(() -> {mIntake.intake(); mDelivery.toShooter();}, mIntake, mDelivery).withTimeout(isPreloaded ? 0.75 : 1.2)
                 ))
             ),
             Commands.runOnce(() -> {

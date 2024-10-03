@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 11.909481798189281,
-        "y": 6.252259681101044
+        "x": 12.784200155294897,
+        "y": 6.338231707802447
       },
       "prevControl": null,
       "nextControl": {
-        "x": 10.57405793753986,
-        "y": 6.096069755878888
+        "x": 10.878052981177188,
+        "y": 7.449176379834242
       },
       "isLocked": false,
       "linkedName": "RED-Shoot8"
     },
     {
       "anchor": {
-        "x": 7.86416273493548,
-        "y": 5.666547461517963
+        "x": 7.907737752797442,
+        "y": 5.578111669043852
       },
       "prevControl": {
-        "x": 9.082444151668286,
-        "y": 6.05702227457335
+        "x": 8.957010052709238,
+        "y": 6.682479629698614
       },
       "nextControl": null,
       "isLocked": false,
@@ -31,7 +31,7 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.5,
-      "rotationDegrees": -163.18646067957388,
+      "rotationDegrees": -152.3557535875096,
       "rotateFast": false
     }
   ],
@@ -80,7 +80,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -165.71890426402928,
+    "rotation": -155.57904363346753,
     "rotateFast": false
   },
   "reversed": false,

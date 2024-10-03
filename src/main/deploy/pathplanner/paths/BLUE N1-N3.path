@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.6634227036159455,
-        "y": 6.275688169884366
+        "x": 1.3381784483283943,
+        "y": 5.87910420476423
       },
       "isLocked": false,
       "linkedName": "BLUE-Intake1 new"
     },
     {
       "anchor": {
-        "x": 2.1632304643268396,
-        "y": 4.229600149474142
+        "x": 2.4053248484211793,
+        "y": 4.02665014356157
       },
       "prevControl": {
-        "x": 1.4838042896104675,
-        "y": 4.674741436357283
+        "x": 0.7629427135338847,
+        "y": 4.482944383528223
       },
       "nextControl": null,
       "isLocked": false,
@@ -39,7 +39,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -43.21008939175399,
+    "rotation": -9.752236220386553,
     "rotateFast": false
   },
   "reversed": false,
